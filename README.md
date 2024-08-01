@@ -15,5 +15,5 @@
 - Header:
   The header shows the location and current temperature.
 
-- Modals
+- Modals:
   Users can open and close a modal to view details about a new garment. Additionally, clicking on a clothing card opens a modal displaying a larger version of the garment's image.
