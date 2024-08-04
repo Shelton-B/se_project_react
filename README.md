@@ -17,3 +17,7 @@
 
 - Modals:
   Users can open and close a modal to view details about a new garment. Additionally, clicking on a clothing card opens a modal displaying a larger version of the garment's image.
+
+## Link
+
+- https://shelton-b.github.io/se_project_react/
