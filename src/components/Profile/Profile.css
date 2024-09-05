@@ -1,0 +1,12 @@
+.profile {
+  display: flex;
+  gap: 116px;
+  margin-top: 47px;
+}
+
+.profile__sidebar {
+}
+
+.profile__clothing-items {
+  display: flex;
+}

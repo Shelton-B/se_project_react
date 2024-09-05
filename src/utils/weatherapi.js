@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { CurrentTemperatureUnitContext } from "../contexts/currentTemperatureUnitContext";
+
 export const getWeather = ({ longitude, latitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
@@ -14,17 +17,21 @@ export const getWeather = ({ longitude, latitude }, APIkey) => {
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = { F: data.main.temp };
+  result.temp = {
+    F: Math.round(data.main.temp),
+    C: Math.round(((data.main.temp - 32) * 5) / 9),
+  };
+  console.log(result.temp);
   result.type = getWeatherType(result.temp.F);
   return result;
 };
 
 const getWeatherType = (temperature) => {
   if (temperature >= 80) {
-    return "hot";
+    return "Hot";
   } else if (temperature >= 66) {
-    return "warm";
+    return "Warm";
   } else {
-    return "cold";
+    return "Cold";
   }
 };

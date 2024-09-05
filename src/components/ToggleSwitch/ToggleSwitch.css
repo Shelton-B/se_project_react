@@ -1,0 +1,34 @@
+.toggle-switch {
+  display: flex;
+  position: relative;
+  padding-right: 20px;
+}
+
+.toggle-switch__box {
+  border-radius: 25px;
+  border: 2px solid black;
+  width: 50px;
+  height: 30px;
+  appearance: none;
+}
+
+.toggle-switch__slider {
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+}
+
+.toggle-switch__slider-F {
+  /* top: 3px; */
+  left: 20px;
+}
+
+.toggle-switch__slider-C {
+  /* top: 3px; */
+  /* left: 5px; */
+}
