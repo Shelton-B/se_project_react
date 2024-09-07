@@ -11,7 +11,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/currentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { getItems } from "../../utils/api";
+import { getItems, addNewItems, deleteItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -42,14 +42,25 @@ function App() {
     closeModal();
   };
 
+  const handleDelete = (id) => {
+    deleteItem(id).then(() => {
+      setClothingItems((items) => {});
+      closeModal();
+    });
+  };
+
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  // const handleAddItemSubmit = (newItem) => {
-  //   setClothingItems([newItem, ...clothingItems]);
-  // };
+  const handleAddItemSubmit = (item) => {
+    addNewItems(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -68,8 +79,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
-  // add smooth transition for add items //
 
   return (
     <div className="page">
@@ -111,13 +120,14 @@ function App() {
           <AddItemModal
             isOpen={activeModal === "add-garment"}
             handleCloseClick={closeModal}
-            onAddItem={onAddItem}
+            onAddItem={handleAddItemSubmit}
           ></AddItemModal>
         )}
         <ItemModal
           isOpen={activeModal === "preview"}
           card={selectedCard}
           handleCloseClick={closeModal}
+          onDelete={handleDelete}
         ></ItemModal>
       </CurrentTemperatureUnitContext.Provider>
     </div>

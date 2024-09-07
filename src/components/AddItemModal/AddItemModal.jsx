@@ -7,9 +7,9 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
     setName(e.target.value);
   };
 
-  const [link, setLink] = useState("");
-  const handleLinkChange = (e) => {
-    setLink(e.target.value);
+  const [imageUrl, setImageUrl] = useState("");
+  const handleImageUrlChange = (e) => {
+    setImageUrl(e.target.value);
   };
 
   const [weather, setWeather] = useState("");
@@ -19,11 +19,10 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link, weather });
+    onAddItem({ name, imageUrl, weather });
   };
 
   return (
-    /* don't forget to pass appropriate props to ModalWithForm */
     <ModalWithForm
       title="New Garment"
       titleText="New garment"
@@ -50,8 +49,8 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
           type="text"
           id="imageUrl"
           placeholder="Image URL"
-          value={link}
-          onChange={handleLinkChange}
+          value={imageUrl}
+          onChange={handleImageUrlChange}
         />
       </label>
       <fieldset className="modal__radio-buttons">

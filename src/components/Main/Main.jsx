@@ -29,7 +29,6 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
                   key={item._id}
                   item={item}
                   handleCardClick={handleCardClick}
-                  clothingItems={clothingItems}
                 ></ItemCard>
               );
             })}
