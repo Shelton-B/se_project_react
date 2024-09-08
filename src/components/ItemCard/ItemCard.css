@@ -29,4 +29,9 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   width: 328px;
   height: 328px;
+  cursor: pointer;
+}
+
+.card__image:hover {
+  opacity: 0.6;
 }

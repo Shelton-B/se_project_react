@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   padding-bottom: 28px;
 }
 
@@ -80,4 +80,8 @@
   align-items: center;
   text-decoration: none;
   color: black;
+}
+
+.header__logo-date {
+  max-width: 250px;
 }

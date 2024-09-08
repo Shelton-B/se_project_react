@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import Footer from "../Footer/Footer";
 import { getWeather, filterWeatherData } from "../../utils/weatherapi";
@@ -37,16 +36,18 @@ function App() {
     setSelectedCard(card);
   };
 
-  const onAddItem = (values) => {
-    console.log(values);
-    closeModal();
-  };
+  // const onAddItem = (values) => {
+  //   console.log(values);
+  //   closeModal();
+  // };
 
   const handleDelete = (id) => {
-    deleteItem(id).then(() => {
-      setClothingItems((items) => {});
-      closeModal();
-    });
+    deleteItem(id)
+      .then(() => {
+        setClothingItems((items) => items.filter((item) => item._id !== id));
+        closeModal();
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleToggleSwitchChange = () => {
@@ -58,6 +59,7 @@ function App() {
     addNewItems(item)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
+        closeModal();
       })
       .catch((err) => console.log(err));
   };

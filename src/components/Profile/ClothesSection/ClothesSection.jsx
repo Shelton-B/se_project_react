@@ -1,6 +1,5 @@
 import "./ClothesSection.css";
 import ItemCard from "../../ItemCard/ItemCard";
-// import { defaultClothingItems } from "../../../utils/constants";
 
 function ClothesSection({ handleCardClick, handleAddClick, clothingItems }) {
   return (
@@ -18,7 +17,6 @@ function ClothesSection({ handleCardClick, handleAddClick, clothingItems }) {
       <ul className="clothes-section__list">
         {clothingItems.length &&
           clothingItems.map((item) => {
-            // console.log(clothingItems?.map);
             return (
               <ItemCard
                 key={item._id}

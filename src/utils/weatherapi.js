@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { CurrentTemperatureUnitContext } from "../contexts/currentTemperatureUnitContext";
-
 export const getWeather = ({ longitude, latitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
@@ -30,8 +27,6 @@ export const filterWeatherData = (data) => {
 const isDay = ({ sunrise, sunset }, now) => {
   return sunrise * 1000 < now && now < sunset * 1000;
 };
-
-console.log(isDay);
 
 const getWeatherType = (temperature) => {
   if (temperature >= 80) {
