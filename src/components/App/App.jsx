@@ -36,10 +36,10 @@ function App() {
     setSelectedCard(card);
   };
 
-  // const onAddItem = (values) => {
-  //   console.log(values);
-  //   closeModal();
-  // };
+  const onAddItem = (values) => {
+    console.log(values);
+    closeModal();
+  };
 
   const handleDelete = (id) => {
     deleteItem(id)

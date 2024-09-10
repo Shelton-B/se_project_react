@@ -3,6 +3,7 @@ import "../ItemCard/ItemCard.css";
 function ItemCard({ item, handleCardClick }) {
   const cardClick = () => {
     handleCardClick(item);
+    console.log(item);
   };
 
   return (
