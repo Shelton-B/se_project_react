@@ -11,6 +11,9 @@ import { CurrentTemperatureUnitContext } from "../../contexts/currentTemperature
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import { getItems, addNewItems, deleteItem } from "../../utils/api";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import { Navigate } from "react-router-dom";
+import LoginModal from "../LogInModal/LoginModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -22,6 +25,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -36,8 +41,22 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleSignUp = () => {
+    setActiveModal("sign-up");
+  };
+
+  const handleLogIn = () => {
+    setActiveModal("log-in");
+  };
+
   const onAddItem = (values) => {
     console.log(values);
+    closeModal();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", e);
     closeModal();
   };
 
@@ -91,6 +110,8 @@ function App() {
           <Header
             handleAddClick={handleAddClick}
             weatherData={weatherData}
+            handleSignUp={handleSignUp}
+            handleLogIn={handleLogIn}
           ></Header>
 
           <Routes>
@@ -114,6 +135,16 @@ function App() {
                 />
               }
             />
+            {/* <Route
+              path="*"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/profile" replace />
+                ) : (
+                  <Navigate to="/main" replace />
+                )
+              }
+            /> */}
           </Routes>
 
           <Footer></Footer>
@@ -125,12 +156,26 @@ function App() {
             onAddItem={handleAddItemSubmit}
           ></AddItemModal>
         )}
+
         <ItemModal
           isOpen={activeModal === "preview"}
           card={selectedCard}
           handleCloseClick={closeModal}
           onDelete={handleDelete}
         ></ItemModal>
+
+        <RegisterModal
+          isOpen={activeModal === "sign-up"}
+          handleCloseClick={closeModal}
+          handleSubmit={handleSubmit}
+          handleLogIn={handleLogIn}
+        ></RegisterModal>
+
+        <LoginModal
+          isOpen={activeModal === "log-in"}
+          handleCloseClick={closeModal}
+          handleSignUp={handleSignUp}
+        ></LoginModal>
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );

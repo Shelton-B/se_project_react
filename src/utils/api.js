@@ -19,7 +19,11 @@ function addNewItems({ name, imageUrl, weather }) {
       weather,
       imageUrl,
     }),
-  }).then(handleServerResponse);
+  })
+    .then(handleServerResponse)
+    .catch((err) => {
+      console.error("Error adding item:", err);
+    });
 }
 
 function deleteItem(id) {

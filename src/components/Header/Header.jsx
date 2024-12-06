@@ -49,7 +49,6 @@ function Header({ handleAddClick, weatherData, handleSignUp, handleLogIn }) {
               className="header__button"
               onClick={handleSignUp}
             >
-              {" "}
               Sign Up
             </button>
             <button

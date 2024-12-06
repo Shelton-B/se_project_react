@@ -131,3 +131,12 @@
 .modal__submit:hover {
   opacity: 60%;
 }
+
+.modal__submit-container {
+  display: flex;
+}
+
+#buttonText2 {
+  color: grey;
+  background-color: white;
+}
