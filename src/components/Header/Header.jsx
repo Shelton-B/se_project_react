@@ -12,7 +12,7 @@ function Header({ handleAddClick, weatherData, handleSignUp, handleLogIn }) {
     day: "numeric",
   });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //set false//
 

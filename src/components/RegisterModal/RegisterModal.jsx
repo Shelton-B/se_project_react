@@ -4,14 +4,14 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function RegisterModal({
   isOpen,
   handleCloseClick,
-  handleSubmit,
+  handleRegistration,
   handleLogIn,
 }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     name: "",
-    avatarURL: "",
+    avatar: "",
   });
 
   const handleInputChange = (e) => {
@@ -20,6 +20,11 @@ function RegisterModal({
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleRegistration(formData);
   };
 
   return (
@@ -77,10 +82,10 @@ function RegisterModal({
         <input
           className="modal__input"
           type="url"
-          name="avatarURL"
-          id="AvatarURL"
+          name="avatar"
+          id="avatar"
           placeholder="Avatar URL"
-          value={formData.avatarURL}
+          value={formData.avatar}
           onChange={handleInputChange}
         />
       </label>

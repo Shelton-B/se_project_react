@@ -4,13 +4,13 @@ const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
 };
 
-function signUp({ name, avatar, email, password }) {
+function signUp({ email, password, name, avatar }) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, avatar, email, password }),
+    body: JSON.stringify({ email, password, name, avatar }),
   }).then(handleServerResponse);
 }
 

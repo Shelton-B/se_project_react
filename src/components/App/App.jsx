@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -12,9 +12,9 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import { getItems, addNewItems, deleteItem } from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
-import { Navigate } from "react-router-dom";
 import LoginModal from "../LogInModal/LoginModal";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "../ProtectedRoute./ProtectedRoute";
+import { signUp, signIn } from "../../utils/auth";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -29,12 +29,12 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleAddClick = () => {
-    setActiveModal("add-garment");
-  };
-
   const closeModal = () => {
     setActiveModal("");
+  };
+
+  const handleAddClick = () => {
+    setActiveModal("add-garment");
   };
 
   const handleCardClick = (card) => {
@@ -56,9 +56,17 @@ function App() {
   //   closeModal();
   // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", e);
+  const nav = useNavigate();
+
+  const handleRegistration = ({ email, password, name, avatar }) => {
+    signUp({ email, password, name, avatar })
+      .then(() => {
+        console.log("registration succesful:");
+      })
+      .catch((error) => {
+        console.error("registration failed", error);
+      });
+    nav("/profile");
     closeModal();
   };
 
@@ -84,6 +92,8 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
+
+  /*use effect*/
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -173,7 +183,7 @@ function App() {
         <RegisterModal
           isOpen={activeModal === "sign-up"}
           handleCloseClick={closeModal}
-          handleSubmit={handleSubmit}
+          handleRegistration={handleRegistration}
           handleLogIn={handleLogIn}
         ></RegisterModal>
 
