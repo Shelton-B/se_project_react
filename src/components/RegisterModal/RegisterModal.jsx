@@ -22,20 +22,12 @@ function RegisterModal({
     }));
   };
 
-  // reset form after submission //
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("Form submitted:", e);
-  //   handleCloseClick();
-  // };
-
   return (
     <ModalWithForm
       title="sign-up"
       titleText="Sign Up"
       buttonText="Sign Up"
-      buttonText2="Or Log In"
+      buttonText2="or Log In"
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
       onSubmit={handleSubmit}
@@ -97,3 +89,11 @@ function RegisterModal({
 }
 
 export default RegisterModal;
+
+// reset form after submission //
+
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   console.log("Form submitted:", e);
+//   handleCloseClick();
+// };

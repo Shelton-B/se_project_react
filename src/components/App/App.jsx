@@ -14,6 +14,7 @@ import { getItems, addNewItems, deleteItem } from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import { Navigate } from "react-router-dom";
 import LoginModal from "../LogInModal/LoginModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -47,12 +48,13 @@ function App() {
 
   const handleLogIn = () => {
     setActiveModal("log-in");
+    setIsLoggedIn(true);
   };
 
-  const onAddItem = (values) => {
-    console.log(values);
-    closeModal();
-  };
+  // const onAddItem = (values) => {
+  //   console.log(values);
+  //   closeModal();
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -125,26 +127,30 @@ function App() {
                 />
               }
             />
+
             <Route
               path="/profile"
               element={
-                <Profile
-                  handleCardClick={handleCardClick}
-                  handleAddClick={handleAddClick}
-                  clothingItems={clothingItems}
-                />
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
+                    handleCardClick={handleCardClick}
+                    handleAddClick={handleAddClick}
+                    clothingItems={clothingItems}
+                  />
+                </ProtectedRoute>
               }
             />
-            {/* <Route
+
+            <Route
               path="*"
               element={
                 isLoggedIn ? (
                   <Navigate to="/profile" replace />
                 ) : (
-                  <Navigate to="/main" replace />
+                  <Navigate to="/" replace />
                 )
               }
-            /> */}
+            />
           </Routes>
 
           <Footer></Footer>
