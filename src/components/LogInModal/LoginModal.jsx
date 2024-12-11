@@ -1,21 +1,39 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ isOpen, handleCloseClick, handleSignUp }) {
-  const [email, setEmail] = useState("");
+function LoginModal({
+  isOpen,
+  handleCloseClick,
+  handleSignUpClick,
+  handleLogin,
+}) {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  // const handleEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
+
+  // const handlePasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleLogin(data);
   };
 
   return (
@@ -27,7 +45,8 @@ function LoginModal({ isOpen, handleCloseClick, handleSignUp }) {
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      handleSignUp={handleSignUp}
+      handleSignUpClick={handleSignUpClick}
+      handleLogin={handleLogin}
     >
       <label className="modal__label" htmlFor="email">
         Email
@@ -35,9 +54,10 @@ function LoginModal({ isOpen, handleCloseClick, handleSignUp }) {
           className="modal__input"
           type="email"
           id="email"
+          name="email"
           placeholder="Email"
-          value={email}
-          onChange={handleEmailChange}
+          value={data.email}
+          onChange={handleChange}
         />
       </label>
 
@@ -47,9 +67,10 @@ function LoginModal({ isOpen, handleCloseClick, handleSignUp }) {
           className="modal__input"
           type="password"
           id="password"
+          name="password"
           placeholder="Password"
-          value={password}
-          onChange={handlePasswordChange}
+          value={data.password}
+          onChange={handleChange}
         />
       </label>
     </ModalWithForm>

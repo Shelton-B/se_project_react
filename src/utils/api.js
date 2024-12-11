@@ -8,11 +8,12 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(handleServerResponse);
 }
 
-function addNewItems({ name, imageUrl, weather }) {
+function addNewItems({ name, imageUrl, weather }, token) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name,
@@ -26,12 +27,13 @@ function addNewItems({ name, imageUrl, weather }) {
     });
 }
 
-function deleteItem(id) {
+function deleteItem(id, token) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
+    authorization: `Bearer ${token}`,
   }).then(handleServerResponse);
 }
 

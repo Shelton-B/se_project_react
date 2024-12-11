@@ -5,7 +5,7 @@ function RegisterModal({
   isOpen,
   handleCloseClick,
   handleRegistration,
-  handleLogIn,
+  handleLogInClick,
 }) {
   const [formData, setFormData] = useState({
     email: "",
@@ -36,7 +36,7 @@ function RegisterModal({
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      handleLogIn={handleLogIn}
+      handleLogInClick={handleLogInClick}
     >
       <label className="modal__label" htmlFor="email">
         Email

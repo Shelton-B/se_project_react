@@ -8,8 +8,8 @@ function ModalWithForm({
   isOpen,
   handleCloseClick,
   onSubmit,
-  handleLogIn,
-  handleSignUp,
+  handleLogInClick,
+  handleSignUpClick,
 }) {
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
@@ -32,7 +32,7 @@ function ModalWithForm({
               className="modal__submit"
               type="button"
               id="buttonText2"
-              onClick={handleSignUp || handleLogIn}
+              onClick={handleSignUpClick || handleLogInClick}
             >
               {buttonText2}
             </button>
