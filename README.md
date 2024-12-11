@@ -2,7 +2,7 @@
 
 ## Overview
 
-- The WTWR (What To Wear Right) app is designed to help users find suitable clothing based on the current weather conditions. The app will feature a set of clothing cards, a weather API integration, and modals for garment and image viewing.
+- The WTWR (What To Wear) app is designed to help users find suitable clothing based on the current weather conditions. The app will feature a set of clothing cards, a weather API integration, and modals for garment and image viewing.
 
 ## Features
 
