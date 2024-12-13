@@ -16,6 +16,7 @@ import LoginModal from "../LogInModal/LoginModal";
 import ProtectedRoute from "../ProtectedRoute./ProtectedRoute";
 import { signUp, signIn, checkToken } from "../../utils/auth";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -29,6 +30,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState();
+  const [token, setToken] = useState("");
 
   const navigate = useNavigate();
 
@@ -53,10 +55,16 @@ function App() {
     setActiveModal("log-in");
   };
 
+  const handleEditProfileClick = () => {
+    setActiveModal("edit-profile");
+  };
+
   // const onAddItem = (values) => {
   //   console.log(values);
   //   closeModal();
   // };
+
+  const handleEditProfile = () => {};
 
   const handleRegistration = ({ email, password, name, avatar }) => {
     signUp({ email, password, name, avatar })
@@ -104,9 +112,9 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
-    addNewItems(item)
+    addNewItems(item, token)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        setClothingItems([...clothingItems, newItem]);
         closeModal();
       })
       .catch((err) => console.log(err));
@@ -139,7 +147,12 @@ function App() {
       checkToken(token)
         .then((userData) => {
           setIsLoggedIn(true);
-          setCurrentUser(userData);
+          setToken(token);
+          setCurrentUser({
+            name: userData.name,
+            avatar: userData.avatar,
+            email: userData.email,
+          });
           navigate("/profile");
         })
         .catch((error) => {
@@ -230,6 +243,12 @@ function App() {
             handleSignUpClick={handleSignUpClick}
             handleLogin={handleLogin}
           ></LoginModal>
+
+          <EditProfileModal
+            isOpen={activeModal === "edit-profile"}
+            handleCloseClick={closeModal}
+            handleEditProfileClick={handleEditProfileClick}
+          ></EditProfileModal>
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </CurrentUserContext.Provider>

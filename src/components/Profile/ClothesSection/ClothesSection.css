@@ -3,6 +3,7 @@
 
 .clothes-section__data {
   display: flex;
+  padding-bottom: 16px;
 }
 
 .clothes-section__list {
@@ -13,10 +14,6 @@
   padding: 0;
   list-style-type: none;
   gap: 21px;
-}
-
-.clothes-section__data {
-  padding-bottom: 16px;
 }
 
 .clothes-section__items {
