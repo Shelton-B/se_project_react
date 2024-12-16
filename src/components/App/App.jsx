@@ -10,7 +10,12 @@ import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/currentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { getItems, addNewItems, deleteItem } from "../../utils/api";
+import {
+  getItems,
+  addNewItems,
+  deleteItem,
+  editProfile,
+} from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LogInModal/LoginModal";
 import ProtectedRoute from "../ProtectedRoute./ProtectedRoute";
@@ -64,7 +69,20 @@ function App() {
   //   closeModal();
   // };
 
-  const handleEditProfile = () => {};
+  const handleEditProfile = ({ name, avatar }) => {
+    const token = localStorage.getItem("jwt");
+
+    console.log("Token being used:", token);
+    editProfile({ name, avatar }, token)
+      .then((res) => {
+        console.log("Profile Update Succesful");
+        setCurrentUser(res);
+        closeModal();
+      })
+      .catch((err) => {
+        console.error("Error Updating", err);
+      });
+  };
 
   const handleRegistration = ({ email, password, name, avatar }) => {
     signUp({ email, password, name, avatar })
@@ -196,6 +214,7 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
+                      handleEditProfileClick={handleEditProfileClick}
                     />
                   </ProtectedRoute>
                 }
@@ -247,7 +266,7 @@ function App() {
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             handleCloseClick={closeModal}
-            handleEditProfileClick={handleEditProfileClick}
+            handleEditProfile={handleEditProfile}
           ></EditProfileModal>
         </CurrentTemperatureUnitContext.Provider>
       </div>

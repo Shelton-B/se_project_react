@@ -23,7 +23,7 @@ function addNewItems({ name, imageUrl, weather }, token) {
   })
     .then(handleServerResponse)
     .catch((err) => {
-      console.error("Error adding item:", err);
+      console.error("Error adding item", err);
     });
 }
 
@@ -32,9 +32,27 @@ function deleteItem(id, token) {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
-    authorization: `Bearer ${token}`,
   }).then(handleServerResponse);
 }
 
-export { getItems, addNewItems, deleteItem };
+function editProfile({ name, avatar }, token) {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      name,
+      avatar,
+    }),
+  })
+    .then(handleServerResponse)
+    .catch((err) => {
+      console.error("Error editing profile data", err);
+    });
+}
+
+export { getItems, addNewItems, deleteItem, editProfile };
