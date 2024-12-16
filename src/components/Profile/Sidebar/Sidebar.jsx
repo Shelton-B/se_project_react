@@ -20,7 +20,7 @@ function Sidebar({ handleEditProfileClick }) {
           className="sidebar__btn"
           type="button"
         >
-          Edit Profile
+          Change Profile Data
         </button>
         <button className="sidebar__btn" type="button">
           Log Out

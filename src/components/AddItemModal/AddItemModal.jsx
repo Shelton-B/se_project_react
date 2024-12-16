@@ -56,7 +56,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
-        <label className="modal__label modal__label_type_radio" htmlFor="Hot">
+        <label className="modal__label modal__label_type_radio" htmlFor="hot">
           <input
             className="modal__radio-input"
             id="hot"
@@ -67,7 +67,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
           />
           Hot
         </label>
-        <label className="modal__label modal__label_type_radio" htmlFor="Warm">
+        <label className="modal__label modal__label_type_radio" htmlFor="warm">
           <input
             className="modal__radio-input"
             id="warm"
@@ -78,7 +78,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
           />
           Warm
         </label>
-        <label className="modal__label modal__label_type_radio" htmlFor="Cold">
+        <label className="modal__label modal__label_type_radio" htmlFor="cold">
           <input
             className="modal__radio-input"
             id="cold"
