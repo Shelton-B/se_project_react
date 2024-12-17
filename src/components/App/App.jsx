@@ -106,13 +106,20 @@ function App() {
 
         setIsLoggedIn(true);
         setCurrentUser(res);
-        navigate("/profile"); //move to login//
+        navigate("/profile");
 
         closeModal();
       })
       .catch((error) => {
         console.error("login failed", error);
       });
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser("");
+    navigate("/");
   };
 
   const handleDelete = (id) => {
@@ -218,6 +225,7 @@ function App() {
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
                       handleEditProfileClick={handleEditProfileClick}
+                      handleSignOut={handleSignOut}
                     />
                   </ProtectedRoute>
                 }
