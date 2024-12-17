@@ -34,7 +34,11 @@ function deleteItem(id, token) {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then(handleServerResponse);
+  })
+    .then(handleServerResponse)
+    .catch((err) => {
+      console.error("Error deleting item", err);
+    });
 }
 
 function editProfile({ name, avatar }, token) {

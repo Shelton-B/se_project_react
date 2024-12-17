@@ -116,7 +116,10 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    deleteItem(id)
+    const token = localStorage.getItem("jwt");
+    console.log("Delete: Token being used:", token);
+
+    deleteItem(id, token)
       .then(() => {
         setClothingItems((items) => items.filter((item) => item._id !== id));
         closeModal();
