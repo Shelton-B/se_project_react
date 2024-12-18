@@ -1,4 +1,5 @@
 import "../ItemCard/ItemCard.css";
+import like from "../../images/like.png";
 
 function ItemCard({ item, handleCardClick }) {
   const cardClick = () => {
@@ -9,6 +10,7 @@ function ItemCard({ item, handleCardClick }) {
   return (
     <li className="card">
       <h2 className="card__title">{item.name}</h2>
+      <button className="card__like-btn" type="button"></button>
       <img
         className="card__image"
         src={item.imageUrl}

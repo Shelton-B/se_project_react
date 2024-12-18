@@ -30,8 +30,21 @@
   width: 328px;
   height: 328px;
   cursor: pointer;
+  object-fit: cover;
 }
 
-.card__image:hover {
+/* .card__image:hover {
   opacity: 0.6;
+} */
+
+.card__like-btn {
+  width: 18px;
+  height: 15px;
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  background: transparent url(../../images/like.svg) center no-repeat;
+  border: none;
+  cursor: pointer;
+  background-size: contain;
 }
