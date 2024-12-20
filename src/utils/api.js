@@ -59,4 +59,41 @@ function editProfile({ name, avatar }, token) {
     });
 }
 
-export { getItems, addNewItems, deleteItem, editProfile };
+function addCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+
+      authorization: `Bearer ${token}`,
+    },
+  })
+    .then(handleServerResponse)
+    .catch((err) => {
+      console.error("Error liking data", err);
+    });
+}
+
+function removeCardLike(id, token) {
+  return fetch(`${baseUrl}/likes/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+
+      authorization: `Bearer ${token}`,
+    },
+  })
+    .then(handleServerResponse)
+    .catch((err) => {
+      console.error("Error liking data", err);
+    });
+}
+
+export {
+  getItems,
+  addNewItems,
+  deleteItem,
+  editProfile,
+  addCardLike,
+  removeCardLike,
+};

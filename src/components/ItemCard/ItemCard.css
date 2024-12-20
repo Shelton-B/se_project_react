@@ -7,9 +7,7 @@
 }
 
 .card__title {
-  position: absolute;
-  margin: 0;
-  top: 15px;
+  margin: 0 10px 0 0;
   background-color: #fff;
   border-radius: 4px;
   padding: 2px 12px 2px 12px;
@@ -40,11 +38,16 @@
 .card__like-btn {
   width: 18px;
   height: 15px;
-  position: absolute;
-  top: 20px;
-  right: 100px;
   background: transparent url(../../images/like.svg) center no-repeat;
   border: none;
   cursor: pointer;
   background-size: contain;
+  padding-left: 10px;
+}
+
+.card__info {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  margin-top: 10px;
 }
