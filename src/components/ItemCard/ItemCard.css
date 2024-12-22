@@ -38,11 +38,16 @@
 .card__like-btn {
   width: 18px;
   height: 15px;
-  background: transparent url(../../images/like.svg) center no-repeat;
+  background: transparent url(../../images/unlike.svg) center no-repeat;
   border: none;
   cursor: pointer;
   background-size: contain;
   padding-left: 10px;
+}
+
+.card__like-btn_active {
+  background: transparent url(../../images/like.svg) center no-repeat;
+  background-size: contain;
 }
 
 .card__info {

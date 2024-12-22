@@ -1,5 +1,6 @@
 import "../ItemCard/ItemCard.css";
-// import like from "../../images/like.png";
+// import unlike from "../../images/unlike.svg";
+// import like from "..//../images/like.svg";
 import React, { useContext } from "react";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -20,9 +21,8 @@ function ItemCard({ item, handleCardClick, onCardLike }) {
   };
 
   const handleLike = () => {
-    console.log("Item being liked:", item); // This should log the item, check if item._id is present
-
     onCardLike(item);
+    console.log("handle like being used");
   };
 
   return (
