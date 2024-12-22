@@ -4,42 +4,39 @@ import "../Main/Main.css";
 import "/src/index.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/currentTemperatureUnitContext";
 import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
+//fixed main page to show cards before sign up or log in///
 
 function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   ``;
 
-  const currentUser = useContext(CurrentUserContext);
-
   return (
     <main>
       <WeatherCard weatherData={weatherData}></WeatherCard>
-      {currentUser && (
-        <section className="cards">
-          <p className="cards__text">
-            {" "}
-            Today is {weatherData.temp[currentTemperatureUnit]} &deg;{" "}
-            {currentTemperatureUnit} / You may want to wear:
-          </p>
-          <ul className="cards__list">
-            {clothingItems
-              .filter((item) => {
-                return item.weather === weatherData.type;
-              })
-              .map((item) => {
-                return (
-                  <ItemCard
-                    key={item._id}
-                    item={item}
-                    handleCardClick={handleCardClick}
-                    onCardLike={onCardLike}
-                  ></ItemCard>
-                );
-              })}
-          </ul>
-        </section>
-      )}
+      <section className="cards">
+        <p className="cards__text">
+          {" "}
+          Today is {weatherData.temp[currentTemperatureUnit]} &deg;{" "}
+          {currentTemperatureUnit} / You may want to wear:
+        </p>
+        <ul className="cards__list">
+          {clothingItems
+            .filter((item) => {
+              return item.weather === weatherData.type;
+            })
+            .map((item) => {
+              return (
+                <ItemCard
+                  key={item._id}
+                  item={item}
+                  handleCardClick={handleCardClick}
+                  onCardLike={onCardLike}
+                ></ItemCard>
+              );
+            })}
+        </ul>
+      </section>
     </main>
   );
 }

@@ -20,7 +20,7 @@ import {
 } from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LogInModal/LoginModal";
-import ProtectedRoute from "../ProtectedRoute./ProtectedRoute";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { signUp, signIn, checkToken } from "../../utils/auth";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
