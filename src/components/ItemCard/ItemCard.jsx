@@ -11,6 +11,7 @@ function ItemCard({ item, handleCardClick, onCardLike }) {
   // Check if the item was liked by the current user
   // The likes array should be an array of ids
   const isLiked = item.likes.some((id) => id === currentUser._id);
+
   const itemLikeButtonClassName = `card__like-btn ${
     isLiked ? "card__like-btn_active" : ""
   }`;
@@ -21,7 +22,7 @@ function ItemCard({ item, handleCardClick, onCardLike }) {
   };
 
   const handleLike = () => {
-    onCardLike(item);
+    onCardLike({ _id: item._id, isLiked });
     console.log("handle like being used");
   };
 

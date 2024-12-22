@@ -65,3 +65,7 @@
 .modal__delete-button:hover {
   opacity: 0.6;
 }
+
+.modal__delete-button_hidden {
+  display: none;
+}

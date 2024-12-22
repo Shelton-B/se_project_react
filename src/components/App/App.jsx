@@ -151,6 +151,8 @@ function App() {
   };
 
   const handleCardLike = ({ _id, isLiked }) => {
+    console.log(`Card ID: ${_id}, isLiked: ${isLiked}`); // Debug
+
     const token = localStorage.getItem("jwt");
 
     // Check if this card is not currently liked
@@ -213,7 +215,6 @@ function App() {
           setToken(token);
           setCurrentUser(userData);
           navigate("/profile");
-          console.log(userData);
         })
         .catch((error) => {
           console.error("Token validation failed:", error);
