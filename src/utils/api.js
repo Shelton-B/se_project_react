@@ -20,11 +20,7 @@ function addNewItems({ name, imageUrl, weather }, token) {
       weather,
       imageUrl,
     }),
-  })
-    .then(handleServerResponse)
-    .catch((err) => {
-      console.error("Error adding item", err);
-    });
+  }).then(handleServerResponse);
 }
 
 function deleteItem(id, token) {
@@ -34,11 +30,7 @@ function deleteItem(id, token) {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  })
-    .then(handleServerResponse)
-    .catch((err) => {
-      console.error("Error deleting item", err);
-    });
+  }).then(handleServerResponse);
 }
 
 function editProfile({ name, avatar }, token) {
@@ -52,11 +44,7 @@ function editProfile({ name, avatar }, token) {
       name,
       avatar,
     }),
-  })
-    .then(handleServerResponse)
-    .catch((err) => {
-      console.error("Error editing profile data", err);
-    });
+  }).then(handleServerResponse);
 }
 
 function addCardLike(id, token) {
@@ -67,11 +55,7 @@ function addCardLike(id, token) {
 
       authorization: `Bearer ${token}`,
     },
-  })
-    .then(handleServerResponse)
-    .catch((err) => {
-      console.error("Error liking data", err);
-    });
+  }).then(handleServerResponse);
 }
 
 function removeCardLike(id, token) {
@@ -82,11 +66,7 @@ function removeCardLike(id, token) {
 
       authorization: `Bearer ${token}`,
     },
-  })
-    .then(handleServerResponse)
-    .catch((err) => {
-      console.error("Error liking data", err);
-    });
+  }).then(handleServerResponse);
 }
 
 export {

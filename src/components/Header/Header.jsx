@@ -24,6 +24,8 @@ function Header({
 
   //set false//
 
+  console.log(currentUser);
+
   return (
     <header className="header">
       <Link to="/" className="header__link">
@@ -34,7 +36,7 @@ function Header({
       </p>
       <div className="header__user-container">
         <ToggleSwitch />
-        {currentUser ? (
+        {currentUser?._id ? (
           <>
             <button
               onClick={handleAddClick}

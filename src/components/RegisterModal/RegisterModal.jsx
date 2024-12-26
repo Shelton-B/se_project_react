@@ -32,7 +32,6 @@ function RegisterModal({
       title="sign-up"
       titleText="Sign Up"
       buttonText="Sign Up"
-      buttonText2="or Log In"
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
       onSubmit={handleSubmit}
@@ -43,8 +42,8 @@ function RegisterModal({
         <input
           className="modal__input"
           type="email"
-          id="email"
           name="email"
+          id="email"
           placeholder="Email"
           value={formData.email}
           onChange={handleInputChange}
@@ -56,8 +55,8 @@ function RegisterModal({
         <input
           className="modal__input"
           type="password"
-          id="password"
           name="password"
+          id="password"
           placeholder="Password"
           value={formData.password}
           onChange={handleInputChange}
@@ -69,26 +68,36 @@ function RegisterModal({
         <input
           className="modal__input"
           type="text"
-          id="name"
           name="name"
           placeholder="Name"
           value={formData.name}
           onChange={handleInputChange}
         />
       </label>
-
       <label className="modal__label" htmlFor="name">
         Avatar URL
         <input
           className="modal__input"
           type="url"
           name="avatar"
-          id="avatar"
           placeholder="Avatar URL"
           value={formData.avatar}
           onChange={handleInputChange}
         />
       </label>
+
+      <div className="modal__submit-container">
+        <button className="modal__submit" type="submit" onSubmit={handleSubmit}>
+          Sign Up
+        </button>
+        <button
+          className="modal__submit-2"
+          type="button"
+          onClick={handleLogInClick}
+        >
+          or Log In
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

@@ -36,7 +36,12 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({
+    name: "",
+    email: "",
+    avatar: "",
+    _id: "",
+  });
   const [token, setToken] = useState("");
 
   const navigate = useNavigate();
@@ -83,6 +88,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Error Updating", err);
+        alert("Could not update user info");
       });
   };
 
@@ -107,7 +113,8 @@ function App() {
         localStorage.setItem("jwt", res.token);
 
         setIsLoggedIn(true);
-        setCurrentUser(res);
+
+        setCurrentUser(res.user);
         navigate("/profile");
 
         closeModal();
@@ -144,7 +151,7 @@ function App() {
   const handleAddItemSubmit = (item) => {
     addNewItems(item, token)
       .then((newItem) => {
-        setClothingItems([...clothingItems, newItem]);
+        setClothingItems([newItem, ...clothingItems]);
         closeModal();
       })
       .catch((err) => console.log(err));

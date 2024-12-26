@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function EditProfileModal({ isOpen, handleCloseClick, handleEditProfile }) {
+  const currentUser = useContext(CurrentUserContext);
+
   const [data, setData] = useState({
     name: "",
     avatar: "",
@@ -14,6 +17,12 @@ function EditProfileModal({ isOpen, handleCloseClick, handleEditProfile }) {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setData({ name: currentUser.name, avatar: currentUser.avatar });
+    }
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,8 +44,8 @@ function EditProfileModal({ isOpen, handleCloseClick, handleEditProfile }) {
         <input
           className="modal__input"
           type="name"
-          id="name"
           name="name"
+          id="name"
           placeholder="Name"
           value={data.name}
           onChange={handleInputChange}
@@ -55,6 +64,12 @@ function EditProfileModal({ isOpen, handleCloseClick, handleEditProfile }) {
           onChange={handleInputChange}
         />
       </label>
+
+      <div className="modal__submit-container">
+        <button className="modal__submit" type="submit" onSubmit={handleSubmit}>
+          Save Changes
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

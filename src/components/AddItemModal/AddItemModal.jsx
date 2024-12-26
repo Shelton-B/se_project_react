@@ -37,6 +37,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
         <input
           className="modal__input"
           type="text"
+          name="name"
           id="name"
           placeholder="Name"
           value={name}
@@ -48,6 +49,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
         <input
           className="modal__input"
           type="text"
+          name="imageUrl"
           id="imageUrl"
           placeholder="Image URL"
           value={imageUrl}
@@ -62,7 +64,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
             id="hot"
             type="radio"
             value="hot"
-            name="weather"
+            name="hot"
             onChange={handleWeatherChange}
           />
           Hot
@@ -73,7 +75,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
             id="warm"
             type="radio"
             value="warm"
-            name="weather"
+            name="warm"
             onChange={handleWeatherChange}
           />
           Warm
@@ -84,12 +86,17 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
             id="cold"
             type="radio"
             value="cold"
-            name="weather"
+            name="cold"
             onChange={handleWeatherChange}
           />
           Cold
         </label>
       </fieldset>
+      <div className="modal__submit-container">
+        <button className="modal__submit" type="submit" onSubmit={handleSubmit}>
+          Save Changes
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

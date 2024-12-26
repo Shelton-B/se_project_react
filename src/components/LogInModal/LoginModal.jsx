@@ -30,7 +30,6 @@ function LoginModal({
       title="log-in"
       titleText="Log In"
       buttonText="Log In"
-      buttonText2="or Sign Up"
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
       onSubmit={handleSubmit}
@@ -42,7 +41,6 @@ function LoginModal({
         <input
           className="modal__input"
           type="email"
-          id="email"
           name="email"
           placeholder="Email"
           value={data.email}
@@ -55,13 +53,26 @@ function LoginModal({
         <input
           className="modal__input"
           type="password"
-          id="password"
           name="password"
           placeholder="Password"
           value={data.password}
           onChange={handleChange}
         />
       </label>
+
+      <div className="modal__submit-container">
+        <button className="modal__submit" type="submit" onSubmit={handleSubmit}>
+          Log in
+        </button>
+        <button
+          className="modal__submit-2"
+          type="button"
+          onClick={handleSignUpClick}
+          id="btn2"
+        >
+          or Sign Up
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

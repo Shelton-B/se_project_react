@@ -136,7 +136,17 @@
   display: flex;
 }
 
-#buttonText2 {
+.modal__submit-2 {
   color: grey;
   background-color: white;
+  padding: 0;
+  width: 124px;
+  height: 36px;
+  border: none;
+  cursor: pointer;
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  transition: 0.1s ease-in-out;
 }
