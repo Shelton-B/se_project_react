@@ -37,33 +37,31 @@ function RegisterModal({
       onSubmit={handleSubmit}
       handleLogInClick={handleLogInClick}
     >
-      <label className="modal__label" htmlFor="email">
+      <label className="modal__label">
         Email
         <input
           className="modal__input"
           type="email"
           name="email"
-          id="email"
           placeholder="Email"
           value={formData.email}
           onChange={handleInputChange}
         />
       </label>
 
-      <label className="modal__label" htmlFor="password">
+      <label className="modal__label">
         Password
         <input
           className="modal__input"
           type="password"
           name="password"
-          id="password"
           placeholder="Password"
           value={formData.password}
           onChange={handleInputChange}
         />
       </label>
 
-      <label className="modal__label" htmlFor="name">
+      <label className="modal__label">
         Name
         <input
           className="modal__input"
@@ -74,7 +72,7 @@ function RegisterModal({
           onChange={handleInputChange}
         />
       </label>
-      <label className="modal__label" htmlFor="name">
+      <label className="modal__label">
         Avatar URL
         <input
           className="modal__input"
@@ -103,11 +101,3 @@ function RegisterModal({
 }
 
 export default RegisterModal;
-
-// reset form after submission //
-
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   console.log("Form submitted:", e);
-//   handleCloseClick();
-// };

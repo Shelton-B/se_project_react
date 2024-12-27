@@ -71,11 +71,6 @@ function App() {
     setActiveModal("edit-profile");
   };
 
-  // const onAddItem = (values) => {
-  //   console.log(values);
-  //   closeModal();
-  // };
-
   const handleEditProfile = ({ name, avatar }) => {
     const token = localStorage.getItem("jwt");
 
@@ -158,17 +153,13 @@ function App() {
   };
 
   const handleCardLike = ({ _id, isLiked }) => {
-    console.log(`Card ID: ${_id}, isLiked: ${isLiked}`); // Debug
+    console.log(`Card ID: ${_id}, isLiked: ${isLiked}`);
 
     const token = localStorage.getItem("jwt");
 
-    // Check if this card is not currently liked
     {
       !isLiked
-        ? // if so, send a request to add the user's id to the card's likes array
-
-          // the first argument is the card's id
-          addCardLike(_id, token)
+        ? addCardLike(_id, token)
             .then((updatedCard) => {
               setClothingItems((cards) =>
                 cards.map((item) =>
@@ -177,10 +168,7 @@ function App() {
               );
             })
             .catch((err) => console.log(err))
-        : // if not, send a request to remove the user's id from the card's likes array
-
-          // the first argument is the card's id
-          removeCardLike(_id, token)
+        : removeCardLike(_id, token)
             .then((updatedCard) => {
               setClothingItems((cards) =>
                 cards.map((item) =>
@@ -191,8 +179,6 @@ function App() {
             .catch((err) => console.log(err));
     }
   };
-
-  /*use effect*/
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -253,6 +239,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
@@ -268,6 +255,7 @@ function App() {
                       handleEditProfileClick={handleEditProfileClick}
                       handleSignOut={handleSignOut}
                       onCardLike={handleCardLike}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 }
@@ -291,7 +279,7 @@ function App() {
               isOpen={activeModal === "add-garment"}
               handleCloseClick={closeModal}
               onAddItem={handleAddItemSubmit}
-            ></AddItemModal>
+            />
           )}
 
           <ItemModal
@@ -299,27 +287,27 @@ function App() {
             card={selectedCard}
             handleCloseClick={closeModal}
             onDelete={handleDelete}
-          ></ItemModal>
+          />
 
           <RegisterModal
             isOpen={activeModal === "sign-up"}
             handleCloseClick={closeModal}
             handleRegistration={handleRegistration}
             handleLogInClick={handleLogInClick}
-          ></RegisterModal>
+          />
 
           <LoginModal
             isOpen={activeModal === "log-in"}
             handleCloseClick={closeModal}
             handleSignUpClick={handleSignUpClick}
             handleLogin={handleLogin}
-          ></LoginModal>
+          />
 
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             handleCloseClick={closeModal}
             handleEditProfile={handleEditProfile}
-          ></EditProfileModal>
+          />
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </CurrentUserContext.Provider>

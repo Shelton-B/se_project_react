@@ -64,7 +64,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
             id="hot"
             type="radio"
             value="hot"
-            name="hot"
+            name="weather"
             onChange={handleWeatherChange}
           />
           Hot
@@ -75,7 +75,7 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
             id="warm"
             type="radio"
             value="warm"
-            name="warm"
+            name="weather"
             onChange={handleWeatherChange}
           />
           Warm
@@ -86,14 +86,14 @@ function AddItemModal({ isOpen, onAddItem, handleCloseClick }) {
             id="cold"
             type="radio"
             value="cold"
-            name="cold"
+            name="weather"
             onChange={handleWeatherChange}
           />
           Cold
         </label>
       </fieldset>
       <div className="modal__submit-container">
-        <button className="modal__submit" type="submit" onSubmit={handleSubmit}>
+        <button className="modal__submit" type="submit">
           Save Changes
         </button>
       </div>

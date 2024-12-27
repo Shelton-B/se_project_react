@@ -36,7 +36,7 @@ function LoginModal({
       handleSignUpClick={handleSignUpClick}
       handleLogin={handleLogin}
     >
-      <label className="modal__label" htmlFor="email">
+      <label className="modal__label">
         Email
         <input
           className="modal__input"
@@ -48,7 +48,7 @@ function LoginModal({
         />
       </label>
 
-      <label className="modal__label" htmlFor="password">
+      <label className="modal__label">
         Password
         <input
           className="modal__input"
@@ -68,7 +68,6 @@ function LoginModal({
           className="modal__submit-2"
           type="button"
           onClick={handleSignUpClick}
-          id="btn2"
         >
           or Sign Up
         </button>

@@ -20,10 +20,6 @@ function Header({
 
   const currentUser = useContext(CurrentUserContext);
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  //set false//
-
   console.log(currentUser);
 
   return (

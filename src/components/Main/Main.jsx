@@ -5,9 +5,13 @@ import "/src/index.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/currentTemperatureUnitContext";
 import { useContext } from "react";
 
-//fixed main page to show cards before sign up or log in///
-
-function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
+function Main({
+  weatherData,
+  handleCardClick,
+  clothingItems,
+  onCardLike,
+  isLoggedIn,
+}) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   ``;
 
@@ -32,6 +36,7 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
                   item={item}
                   handleCardClick={handleCardClick}
                   onCardLike={onCardLike}
+                  isLoggedIn={isLoggedIn}
                 ></ItemCard>
               );
             })}
