@@ -61,7 +61,7 @@ function LoginModal({
       </label>
 
       <div className="modal__submit-container">
-        <button className="modal__submit" type="submit" onSubmit={handleSubmit}>
+        <button className="modal__submit" type="submit">
           Log in
         </button>
         <button

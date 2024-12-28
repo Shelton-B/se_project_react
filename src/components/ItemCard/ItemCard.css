@@ -6,19 +6,25 @@
   justify-content: center;
 }
 
-.card__title {
-  margin: 0 10px 0 0;
+.card__info {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  margin: 10px 10px 0 0;
   background-color: #fff;
   border-radius: 4px;
   padding: 2px 12px 2px 12px;
   opacity: 0.6;
+}
+
+.card__title {
+  margin: 0;
   font-family: Cabinet Grotesk;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
   text-align: left;
   color: #000;
-  opacity: 0.6;
 }
 
 .card__image {
@@ -42,17 +48,10 @@
   border: none;
   cursor: pointer;
   background-size: contain;
-  padding-left: 10px;
+  margin-left: 10px;
 }
 
 .card__like-btn_active {
   background: transparent url(../../images/like.svg) center no-repeat;
   background-size: contain;
-}
-
-.card__info {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  margin-top: 10px;
 }

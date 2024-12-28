@@ -144,6 +144,8 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
+    const token = localStorage.getItem("jwt");
+
     addNewItems(item, token)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
