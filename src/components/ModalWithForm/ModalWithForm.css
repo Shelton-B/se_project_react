@@ -150,3 +150,12 @@
   line-height: 20px;
   transition: 0.1s ease-in-out;
 }
+
+.modal__error {
+  color: red;
+  margin: 0;
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+}

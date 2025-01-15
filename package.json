@@ -1,6 +1,6 @@
 {
   "name": "se_project_react",
-  "homepage": "https://Shelton-B.github.io/se_project_react/",
+  "homepage": "https://wtwrtoday.twilightparadox.com/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && scp -r ./dist/* sheltonbrockett@104.196.166.196:/home/sheltonbrockett/frontend "
   },
   "dependencies": {
     "react": "^18.3.1",

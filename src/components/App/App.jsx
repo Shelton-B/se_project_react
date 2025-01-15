@@ -95,6 +95,7 @@ function App() {
       })
       .catch((error) => {
         console.error("registration failed", error);
+        alert("Email already exists");
       });
   };
 

@@ -1,5 +1,4 @@
-const baseUrl = "http://localhost:3001";
-
+import { baseUrl } from "./constants";
 import { handleServerResponse } from "./api";
 
 function signUp({ email, password, name, avatar }) {
