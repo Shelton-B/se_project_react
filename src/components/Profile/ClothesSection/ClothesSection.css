@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
-  gap: 21px;
+  gap: 10px;
 }
 
 .clothes-section__items {
@@ -53,5 +53,9 @@
 
   .clothes-section__button {
     font-size: 15px;
+  }
+
+  .clothes-section__list {
+    justify-content: center;
   }
 }

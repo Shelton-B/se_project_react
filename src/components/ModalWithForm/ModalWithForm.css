@@ -162,7 +162,7 @@
 
 @media screen and (max-width: 430px) {
   .modal__content {
-    max-width: 400px;
+    max-width: 302px;
   }
 
   .modal__input {
