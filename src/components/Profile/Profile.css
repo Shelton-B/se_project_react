@@ -7,5 +7,14 @@
   padding-right: 100px;
 }
 
-.profile__clothing-items {
+@media screen and (max-width: 430px) {
+  .profile__sidebar {
+    margin: auto;
+    padding: 0;
+  }
+
+  .profile {
+    margin: 0;
+    flex-direction: column;
+  }
 }

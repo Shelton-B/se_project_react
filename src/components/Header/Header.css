@@ -33,7 +33,7 @@
   cursor: pointer;
   background-color: transparent;
   margin: 0;
-  padding: 0 10px 0 0;
+  padding-right: 10px;
   font-family: Cabinet Grotesk;
   font-size: 20px;
   font-weight: 700;
@@ -84,4 +84,44 @@
 
 .header__logo-date {
   max-width: 250px;
+}
+
+@media screen and (max-width: 430px) {
+  .header {
+    display: grid;
+    grid-template-areas: "logo info" "date info";
+    align-items: stretch;
+  }
+
+  .header__link {
+    align-items: center;
+  }
+
+  .header__user-container {
+    grid-area: info;
+  }
+
+  .header__date-location {
+    grid-area: date;
+    font-size: 15px;
+  }
+
+  .header__username {
+    padding: 0 5px 0 0;
+    font-size: 15px;
+  }
+
+  .header__button {
+    font-size: 15px;
+    padding-right: 0;
+  }
+
+  .header__avatar {
+    width: 20px;
+    height: 20px;
+  }
+
+  #add-clothes-btn {
+    display: none;
+  }
 }

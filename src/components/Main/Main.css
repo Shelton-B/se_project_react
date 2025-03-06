@@ -20,3 +20,14 @@
   line-height: 24.8px;
   text-align: left;
 }
+
+@media screen and (max-width: 430px) {
+  .cards__text {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .cards__list {
+    justify-content: center;
+  }
+}

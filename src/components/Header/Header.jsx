@@ -38,6 +38,7 @@ function Header({
               onClick={handleAddClick}
               className="header__button"
               type="button"
+              id="add-clothes-btn"
             >
               + Add clothes
             </button>

@@ -8,7 +8,6 @@
 
 .modal__content_type_image {
   background-color: white;
-  padding: 0;
   position: relative;
   margin: auto;
   border-radius: 10px;
@@ -68,4 +67,8 @@
 
 .modal__delete-button_hidden {
   display: none;
+}
+
+#modal__image_content {
+  padding: 0;
 }

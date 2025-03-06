@@ -55,3 +55,9 @@
   background: transparent url(../../images/like.svg) center no-repeat;
   background-size: contain;
 }
+@media screen and (max-width: 430px) {
+  .card__image {
+    height: 300px;
+    width: 300px;
+  }
+}

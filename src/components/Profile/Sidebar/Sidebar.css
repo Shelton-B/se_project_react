@@ -48,3 +48,28 @@
 .sidebar__btn:hover {
   opacity: 0.6;
 }
+
+@media screen and (max-width: 430px) {
+  .sidebar__avatar {
+    margin: 0;
+  }
+
+  .sidebar {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+
+  .sidebar__info {
+    align-items: center;
+    gap: 0;
+  }
+
+  .sidebar__username {
+    font-size: 15px;
+  }
+
+  .sidebar__btn {
+    font-size: 15px;
+  }
+}
